@@ -1,0 +1,23 @@
+<h1>Listing images</h1>
+
+<table>
+  <tr>
+    <th>Gallery</th>
+    <th>Image</th>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @images.each do |image| %>
+  <tr>
+    <td><%= image.gallery_id %></td>
+    <td><%= image_tag image.img.url(:thumb) %></td>
+    <td><%= image.title %></td>
+    <td><%= link_to 'View', image %></td>
+    <td><%= link_to 'Edit', edit_image_path(image.id) %></td>
+    <td><%= link_to 'Delete', image, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>

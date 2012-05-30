@@ -1,0 +1,18 @@
+<% title "Users" %>
+<table>
+  <tr>
+    <th>Username</th>
+    <th>Behavior</th>
+    <th></th>
+  </tr>
+  <% for user in @users %>
+    <tr>
+      <td><%= user.username %></td>
+      <td><%= ratings_for user, :static, :small => true, :dimension => :behavior %></td>
+      <td><%= link_to "Show", user %></td>
+      <%if current_user && current_user.username == user.username %>
+      <td><%= link_to "Edit", edit_current_user_path %></td>
+      <% end %>
+    </tr>
+  <% end %>
+</table>

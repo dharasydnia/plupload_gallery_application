@@ -1,0 +1,21 @@
+<p>
+  <% if !f.object.persisted? %>
+   <%= f.label :title %><br />
+  <% end %>
+ 
+  <%= f.text_field :title %><br />
+  
+  <% if f.object.img.exists? %>
+   <%= image_tag f.object.img(:thumb) %><br />
+  <% end %>
+  
+  <% if f.object.persisted? %>
+   <%= f.check_box :_destroy %>
+   <%= f.label :_destroy, "Remove" %>
+  <% end %>
+  
+  <% if !f.object.persisted? %>
+     <%= f.label :image_file %><br />
+   <%= f.file_field :img %><br />
+  <% end %>
+</p>

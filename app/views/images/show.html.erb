@@ -1,0 +1,19 @@
+<%= @image.gallery_id %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Gallery:</b>
+  <%= @image.gallery_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @image.title %>
+</p>
+
+<p>
+	<a rel="example_group" href="<%= @image.img.url(:original) %>" class="fancybox"><%= (image_tag @image.img.url(:thumb), :border => "0") %></a>
+</p>
+
+<%= link_to 'Edit', edit_image_path(@image) %> |
+<%= link_to 'Back', galleries_path %>
